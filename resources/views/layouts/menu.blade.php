@@ -22,3 +22,11 @@
 </li>
 
 
+<li class="nav-item">
+    <a href="{{ route('loans.index') }}"
+       class="nav-link {{ Request::is('loans*') ? 'active' : '' }}">
+        <p>Loans</p>
+    </a>
+</li>
+
+

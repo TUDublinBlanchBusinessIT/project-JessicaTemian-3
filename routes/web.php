@@ -25,3 +25,6 @@ Route::resource('members', App\Http\Controllers\MemberController::class);
 
 
 Route::resource('genres', App\Http\Controllers\GenreController::class);
+
+
+Route::resource('loans', App\Http\Controllers\LoanController::class);
