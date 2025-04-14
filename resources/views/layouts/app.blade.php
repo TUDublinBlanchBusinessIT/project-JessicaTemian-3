@@ -52,5 +52,16 @@
         <link rel="stylesheet" href="{{asset('css/app.css')}}"> 
         <script src="{{asset('js/app.js')}}"></script>
         @stack('js_scripts')
+
+        <!-- ✅ Step 3: Datepicker Activation -->
+        <script>
+            $(document).ready(function(){
+                $('.datepicker').datepicker({
+                    format: 'yyyy-mm-dd',
+                    autoclose: true,
+                    todayHighlight: true
+                });
+            });
+        </script>
     </body>
 </html>
