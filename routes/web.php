@@ -19,3 +19,6 @@ Route::get('/', function () {
 
 
 Route::resource('books', App\Http\Controllers\BookController::class);
+
+
+Route::resource('members', App\Http\Controllers\MemberController::class);
