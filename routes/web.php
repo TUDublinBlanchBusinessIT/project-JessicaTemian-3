@@ -22,3 +22,6 @@ Route::resource('books', App\Http\Controllers\BookController::class);
 
 
 Route::resource('members', App\Http\Controllers\MemberController::class);
+
+
+Route::resource('genres', App\Http\Controllers\GenreController::class);
