@@ -1,21 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="content-header">
-        <h1 class="pull-left">Genres</h1>
-        <h1 class="pull-right">
-           <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('genres.create') !!}">Add New</a>
-        </h1>
-    </section>
-    <div class="content">
-        <div class="clearfix"></div>
+    <div class="container mt-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="mb-0">Genres</h1>
+            <a class="btn btn-primary" href="{{ route('genres.create') }}">Add New</a>
+        </div>
 
         @include('flash::message')
 
-        <div class="clearfix"></div>
-        <div class="box box-primary">
-            <div class="box-body">
-                    @include('genres.table')
+        <div class="card">
+            <div class="card-body">
+                @include('genres.table')
             </div>
         </div>
     </div>
