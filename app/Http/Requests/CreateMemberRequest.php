@@ -23,7 +23,12 @@ class CreateMemberRequest extends FormRequest
      * @return array
      */
     public function rules()
-    {
-        return Member::$rules;
-    }
+{
+    return [
+        'name' => 'required|string|max:100',
+        'email' => 'required|email|max:100|unique:members,email,' . $this->member,
+        'address' => 'required|string|max:255',
+    ];
+}
+
 }

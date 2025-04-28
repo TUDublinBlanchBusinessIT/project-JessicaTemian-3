@@ -12,7 +12,7 @@ use Response;
 
 class BookController extends AppBaseController
 {
-    /** @var BookRepository $bookRepository*/
+    /** @var BookRepository $bookRepository */
     private $bookRepository;
 
     public function __construct(BookRepository $bookRepo)
@@ -22,23 +22,16 @@ class BookController extends AppBaseController
 
     /**
      * Display a listing of the Book.
-     *
-     * @param Request $request
-     *
-     * @return Response
      */
     public function index(Request $request)
     {
         $books = $this->bookRepository->all();
 
-        return view('books.index')
-            ->with('books', $books);
+        return view('books.index')->with('books', $books);
     }
 
     /**
      * Show the form for creating a new Book.
-     *
-     * @return Response
      */
     public function create()
     {
@@ -47,14 +40,10 @@ class BookController extends AppBaseController
 
     /**
      * Store a newly created Book in storage.
-     *
-     * @param CreateBookRequest $request
-     *
-     * @return Response
      */
     public function store(CreateBookRequest $request)
     {
-        $input = $request->all();
+        $input = $request->validated();
 
         $book = $this->bookRepository->create($input);
 
@@ -65,10 +54,6 @@ class BookController extends AppBaseController
 
     /**
      * Display the specified Book.
-     *
-     * @param int $id
-     *
-     * @return Response
      */
     public function show($id)
     {
@@ -76,7 +61,6 @@ class BookController extends AppBaseController
 
         if (empty($book)) {
             Flash::error('Book not found');
-
             return redirect(route('books.index'));
         }
 
@@ -85,10 +69,6 @@ class BookController extends AppBaseController
 
     /**
      * Show the form for editing the specified Book.
-     *
-     * @param int $id
-     *
-     * @return Response
      */
     public function edit($id)
     {
@@ -96,7 +76,6 @@ class BookController extends AppBaseController
 
         if (empty($book)) {
             Flash::error('Book not found');
-
             return redirect(route('books.index'));
         }
 
@@ -105,11 +84,6 @@ class BookController extends AppBaseController
 
     /**
      * Update the specified Book in storage.
-     *
-     * @param int $id
-     * @param UpdateBookRequest $request
-     *
-     * @return Response
      */
     public function update($id, UpdateBookRequest $request)
     {
@@ -117,11 +91,10 @@ class BookController extends AppBaseController
 
         if (empty($book)) {
             Flash::error('Book not found');
-
             return redirect(route('books.index'));
         }
 
-        $book = $this->bookRepository->update($request->all(), $id);
+        $book = $this->bookRepository->update($request->validated(), $id);
 
         Flash::success('Book updated successfully.');
 
@@ -130,12 +103,6 @@ class BookController extends AppBaseController
 
     /**
      * Remove the specified Book from storage.
-     *
-     * @param int $id
-     *
-     * @throws \Exception
-     *
-     * @return Response
      */
     public function destroy($id)
     {
@@ -143,7 +110,6 @@ class BookController extends AppBaseController
 
         if (empty($book)) {
             Flash::error('Book not found');
-
             return redirect(route('books.index'));
         }
 

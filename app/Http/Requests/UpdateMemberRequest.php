@@ -24,8 +24,11 @@ class UpdateMemberRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = Member::$rules;
-        
-        return $rules;
+        return [
+            'name' => 'required|string|max:100',
+            'email' => 'required|email|max:100|unique:members,email,' . $this->member,
+            'address' => 'required|string|max:255',
+        ];
     }
+    
 }

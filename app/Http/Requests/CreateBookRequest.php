@@ -24,6 +24,14 @@ class CreateBookRequest extends FormRequest
      */
     public function rules()
     {
-        return Book::$rules;
-    }
+        return [
+          'title' => 'required|string|max:100',
+        'author' => 'required|string|max:100',
+        'genre_id' => 'required|integer',
+        'published_year' => 'required|date',
+        'condition' => 'required|string|max:50',
+        'is_available' => 'required|boolean',
+    ];
+}
+
 }
