@@ -23,7 +23,10 @@ class CreateGenreRequest extends FormRequest
      * @return array
      */
     public function rules()
-    {
-        return Genre::$rules;
-    }
+{
+    return [
+        'name' => 'required|string|max:100|unique:genres,name,' . $this->genre,
+    ];
+}
+
 }

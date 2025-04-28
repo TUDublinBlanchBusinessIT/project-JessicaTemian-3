@@ -24,8 +24,12 @@ class UpdateLoanRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = Loan::$rules;
-        
-        return $rules;
+        return [
+            'book_id' => 'required|integer|exists:books,id',
+            'member_id' => 'required|integer|exists:members,id',
+            'borrow_date' => 'required|date',
+            'return_date' => 'nullable|date|after_or_equal:borrow_date',
+        ];
     }
+    
 }

@@ -24,8 +24,9 @@ class UpdateGenreRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = Genre::$rules;
-        
-        return $rules;
+        return [
+            'name' => 'required|string|max:100|unique:genres,name,' . $this->genre,
+        ];
     }
+    
 }

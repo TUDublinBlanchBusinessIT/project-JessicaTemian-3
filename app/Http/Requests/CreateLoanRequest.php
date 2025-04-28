@@ -23,7 +23,13 @@ class CreateLoanRequest extends FormRequest
      * @return array
      */
     public function rules()
-    {
-        return Loan::$rules;
-    }
+{
+    return [
+        'book_id' => 'required|integer|exists:books,id',
+        'member_id' => 'required|integer|exists:members,id',
+        'borrow_date' => 'required|date',
+        'return_date' => 'nullable|date|after_or_equal:borrow_date',
+    ];
+}
+
 }
