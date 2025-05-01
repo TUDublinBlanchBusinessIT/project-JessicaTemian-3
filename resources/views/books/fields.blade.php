@@ -33,9 +33,10 @@
     {!! Form::label('is_available', 'Is Available:') !!}
     <label class="checkbox-inline">
         {!! Form::hidden('is_available', false) !!}
-        {!! Form::checkbox('is_available', 1, null) !!} $VALUE$
+        {!! Form::checkbox('is_available', 1, null) !!}
     </label>
 </div>
+
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
